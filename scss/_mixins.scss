@@ -1,0 +1,251 @@
+//--BORDER RADIUS--
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//@include border-radius(10px);
+//@include border-radius(10px 15px 20px 25px);
+//----------------------------------END HERE
+//
+//--TRANSFORM--
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+//@include transform(translateX(-50%) translateY(-50%) skewX(10deg));
+//----------------------------------END HERE
+//
+//--BACKGROUND SIZE--
+@mixin background-size($background-size) {
+  -webkit-background-size: $background-size;
+  -moz-background-size: $background-size;
+  -ms-background-size: $background-size;
+  -o-background-size: $background-size;
+  background-size: $background-size;
+}
+
+//@include background-size(cover);
+//----------------------------------END HERE
+//
+//--BOX SHAODOW--
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+  -webkit-box-shadow:$top $left $blur $color #{$inset};
+  -moz-box-shadow:$top $left $blur $color #{$inset};
+  -ms-box-shadow:$top $left $blur $color #{$inset};
+  -o-box-shadow:$top $left $blur $color #{$inset};
+  box-shadow:$top $left $blur $color #{$inset};
+}
+
+//@include box-shadow(inset, 0, 1px, 1px, rgba(0, 0, 0, 0.5));
+//----------------------------------END HERE
+//
+//--BACKGROUND LINEAR GRADIENT--
+@mixin linearGradient($gradientValues...) {
+  background: -webkit-linear-gradient($gradientValues);
+  background: -moz-linear-gradient($gradientValues);
+  background: -ms-linear-gradient($gradientValues);
+  background: -o-linear-gradient($gradientValues);
+  background: linear-gradient($gradientValues);
+}
+
+//@include linearGradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+//@include linearGradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+//----------------------------------END HERE
+//
+//--BACKGROUND radial GRADIENT--
+@mixin radial-gradient($gradientValues...) {
+  background: -webkit-radial-gradient($gradientValues);
+  background: -moz-radial-gradient($gradientValues);
+  background: -ms-radial-gradient($gradientValues);
+  background: -o-radial-gradient($gradientValues);
+  background: radial-gradient($gradientValues);
+}
+
+//@include radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+//----------------------------------END HERE
+//
+//--TRANSITION--
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+//@include transition($transition-property, $transition-time, $method);
+//@include transition(padding, 1s, ease-in-out);
+//----------------------------------END HERE
+//
+//--FLEX BOX--
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+%flexbox {
+  @include flexbox;
+}
+
+//----------------------------------END HERE
+//
+//--INLINE-FLEX BOX--
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+%inline-flex {
+  @include inline-flex;
+}
+
+//----------------------------------END HERE
+//
+//--FLEX DIRECTION--
+@mixin flex-direction($direction) {
+  @if $direction==column {
+    -webkit-flex-direction: vertical;
+    -moz-flex-direction: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+
+  @else {
+    -webkit-flex-direction: horizontal;
+    -moz-flex-direction: horizontal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+//@include flex-direction(column);
+//----------------------------------END HERE
+//
+//--BOX SIXING--
+@mixin box-sizing($box-sizing) {
+  -webkit-box-sizing: $box-sizing;
+  -moz-box-sizing: $box-sizing;
+  -ms-box-sizing: $box-sizing;
+  -o-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+}
+
+//----------------------------------END HERE
+//
+//--INPUT PLACEHOLDER--
+@mixin placeholder {
+  $placeholders: ":-webkit-input"":-moz""-moz""-ms-input";
+
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+//@include placeholder {color: $transparent;}
+//
+//----------------------------------END HERE
+//
+//--ANIMATION TRANSITION--
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// @include keyframes(slide-down) {
+//     0% {
+//         opacity: 1;
+//         background: red;
+//     }
+//     100% {
+//         opacity: 0;
+//         background: blue;
+//     }
+// }
+// .element {
+//   width: 100px;
+//   height: 100px;
+//   background: black;
+//   @include animation('slide-down 5s 3');
+// }
+//
+//----------------------------------END HERE
+//
+//--TEXT OVERFLOW (ellipsis)--
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//@include text-truncate;
+//
+//----------------------------------END HERE
+//
+//--OPACITY--
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//@include opacity(0.8);
+//----------------------------------END HERE
+//
+
+
+@mixin maintain-ratio($ratio: 1 1) {
+  $width: 100%;
+  $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+
+  width: $width;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: $height;
+}
+
+//.element { @include maintain-ratio(16 9); }
+//----------------------------------END HERE
+//

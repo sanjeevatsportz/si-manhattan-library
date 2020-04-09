@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Summary</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="text/javascript" src="../js/si_manhattan_lib.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="si-manhatten" id="manhattan">
+    </div>
+    
+    <script>
+    var oversToPlot = [{"Batsmen":{"3861":{"Batsman":"Lendl Simmons","Runs":"4"},"64543":{"Batsman":"Brandon King","Runs":"5"}},"Bowlers":{"3571":{"Bowler":"Lasith Malinga","Runs":"12"}},"Runs":"12","Wickets":"0"},{"Batsmen":{"3861":{"Batsman":"Lendl Simmons","Runs":"5"},"64543":{"Batsman":"Brandon King","Runs":"1"}},"Bowlers":{"4417":{"Bowler":"Thisara Perera","Runs":"6"}},"Runs":"6","Wickets":"0"},{"Batsmen":{"3861":{"Batsman":"Lendl Simmons","Runs":"0","Isout":true},"64543":{"Batsman":"Brandon King","Runs":"9"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"1"}},"Bowlers":{"5244":{"Bowler":"Angelo Mathews","Runs":"10"}},"Runs":"10","Wickets":"1"},{"Batsmen":{"64543":{"Batsman":"Brandon King","Runs":"9"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"2"}},"Bowlers":{"56746":{"Bowler":"Shehan Jayasuriya","Runs":"11"}},"Runs":"11","Wickets":"0"},{"Batsmen":{"64543":{"Batsman":"Brandon King","Runs":"1"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"2"}},"Bowlers":{"5244":{"Bowler":"Angelo Mathews","Runs":"3"}},"Runs":"3","Wickets":"0"},{"Batsmen":{"64543":{"Batsman":"Brandon King","Runs":"18"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"1"}},"Bowlers":{"3571":{"Bowler":"Lasith Malinga","Runs":"19"}},"Runs":"19","Wickets":"0"},{"Batsmen":{"64543":{"Batsman":"Brandon King","Runs":"0"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"7"}},"Bowlers":{"58045":{"Bowler":"Lakshan Sandakan","Runs":"7"}},"Runs":"7","Wickets":"0"},{"Batsmen":{"64543":{"Batsman":"Brandon King","Runs":"0","Isout":true},"64861":{"Batsman":"Shimron Hetmyer","Runs":"2"},"65291":{"Batsman":"Rovman Powell","Runs":"0"}},"Bowlers":{"65033":{"Bowler":"Lahiru Kumara","Runs":"2"}},"Runs":"2","Wickets":"1"},{"Batsmen":{"64861":{"Batsman":"Shimron Hetmyer","Runs":"2"},"65291":{"Batsman":"Rovman Powell","Runs":"7"}},"Bowlers":{"58045":{"Bowler":"Lakshan Sandakan","Runs":"10"}},"Runs":"10","Wickets":"0"},{"Batsmen":{"64861":{"Batsman":"Shimron Hetmyer","Runs":"1"},"65291":{"Batsman":"Rovman Powell","Runs":"6"}},"Bowlers":{"65033":{"Bowler":"Lahiru Kumara","Runs":"7"}},"Runs":"7","Wickets":"0"},{"Batsmen":{"64861":{"Batsman":"Shimron Hetmyer","Runs":"2"},"65291":{"Batsman":"Rovman Powell","Runs":"2"}},"Bowlers":{"5244":{"Bowler":"Angelo Mathews","Runs":"4"}},"Runs":"4","Wickets":"0"},{"Batsmen":{"64861":{"Batsman":"Shimron Hetmyer","Runs":"4"},"65291":{"Batsman":"Rovman Powell","Runs":"1"}},"Bowlers":{"4417":{"Bowler":"Thisara Perera","Runs":"5"}},"Runs":"5","Wickets":"0"},{"Batsmen":{"12047":{"Batsman":"Andre Russell","Runs":"1"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"6"},"65291":{"Batsman":"Rovman Powell","Runs":"1","Isout":true}},"Bowlers":{"59067":{"Bowler":"Dasun Shanaka","Runs":"10"}},"Runs":"10","Wickets":"1"},{"Batsmen":{"12047":{"Batsman":"Andre Russell","Runs":"12"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"7"}},"Bowlers":{"65033":{"Bowler":"Lahiru Kumara","Runs":"19"}},"Runs":"19","Wickets":"0"},{"Batsmen":{"12047":{"Batsman":"Andre Russell","Runs":"7"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"2"}},"Bowlers":{"4417":{"Bowler":"Thisara Perera","Runs":"9"}},"Runs":"9","Wickets":"0"},{"Batsmen":{"12047":{"Batsman":"Andre Russell","Runs":"13"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"2"}},"Bowlers":{"3571":{"Bowler":"Lasith Malinga","Runs":"15"}},"Runs":"15","Wickets":"0"},{"Batsmen":{"12047":{"Batsman":"Andre Russell","Runs":"7"},"64861":{"Batsman":"Shimron Hetmyer","Runs":"2"}},"Bowlers":{"5244":{"Bowler":"Angelo Mathews","Runs":"9"}},"Runs":"9","Wickets":"0"}];
+    	var manhattanObj = {overs : oversToPlot, totalOvers: 20, 'innings': 1, 'powerPlay': 6, 'xAxisLabel': 'Overs', 'yAxisLabel': 'Runs Scored'};
+
+    	var manhattan = new ManhattanJs.Manhattan("manhattan", manhattanObj);
+		manhattan.render();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+//Logo Roll In
+@include keyframes(logoRollIn) {
+    from {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0) scale3d(1.5, 1.5, 1.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+    }
+}
+//Logo Roll Out
+@include keyframes(logoRollOut) {
+    from {
+        opacity: 1;
+        transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+    }
+    
+    to {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0) scale3d(1.5, 1.5, 1.5);
+    }
+}
+
+//TeamA Zoom In
+@include keyframes(teamAZoomIn) {
+    from {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0) scale3d(1.5, 1.5, 1.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+    }
+}
+//TeamA Zoom Out
+@include keyframes(teamAZoomOut) {
+    from {
+        opacity: 1;
+        transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+    }
+    
+    to {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0) scale3d(1.5, 1.5, 1.5);
+    }
+}
+//TeamB Zoom In
+@include keyframes(teamBZoomIn) {
+    from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0) scale3d(1.5, 1.5, 1.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+    }
+}
+//TeamB Zoom Out
+@include keyframes(teamBZoomOut) {
+    from {
+        opacity: 1;
+        transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+    }
+    
+    to {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0) scale3d(1.5, 1.5, 1.5);
+    }
+}
+
+
+//Slide In header
+@include keyframes(slideInHeader){
+    from {
+        transform: translate3d(0, 100%, 0) skewX(35deg);
+        visibility: visible;
+    }
+    
+    to {
+        transform: translate3d(0, 0, 0) skewX(35deg);
+    }
+}
+//Slide Out header
+@include keyframes(slideOutHeader){
+    from {
+        transform: translate3d(0, 0, 0) skewX(35deg);
+    }
+    
+    to {
+        transform: translate3d(0, 100%, 0) skewX(35deg);
+        visibility: hidden;
+    }
+}
+
+//Logo rotation
+@include keyframes(teamALogo){
+    0% {@include transform(rotateY(20deg) perspective(10em))}
+    100% {@include transform(rotateY(-20deg) perspective(10em))}
+}

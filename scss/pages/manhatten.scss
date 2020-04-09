@@ -1,0 +1,561 @@
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+em {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {}
+
+    &:active {}
+}
+
+// WiketBox animation
+@include keyframes(widthIn) {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@include keyframes(widthOut) {
+    from {
+        width: 100%;
+        visibility: visible;
+    }
+
+    to {
+        width: 0%;
+        visibility: hidden;
+    }
+}
+
+@include keyframes(fadeIn) {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+//graph heigh animation
+@include keyframes(manhattenIn) {
+    0% {
+     height:0%;
+    }
+}
+@include keyframes(zoomIn) {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+b,
+strong {
+    font-family: $bold_font-family;
+    font-weight: $bold_font-weight;
+}
+
+.si-manhatten {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 75%;
+    height: 500px;
+
+    &.animateOut {
+        visibility: visible;
+        @include animation(1s ease-in both zoomOut);
+    }
+
+    &.si-singleInning {
+        .si-teamwrapper {
+            .si-inside-wrapper {
+                .si-team {
+                    span {
+                        &:after {
+                            display: none;
+                        }
+                    }
+
+                    &.si-teamB {
+                        span {
+                            font-family: $DDIN_font-family;
+                            font-weight: $DDIN_font-weight;
+                            font-size: 23px;
+
+                        }
+
+                        .si-imageBox {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .si-manhatten {
+            &__box {
+                .si-scoreBox {
+                    .si-team {
+                        &.si-teamBBox {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &__container {
+                .si-over {
+                    &.teamB {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &__box {
+        width: 100%;
+        height: 100%;
+
+        position: relative;
+        overflow: hidden;
+
+        &.animateIn {
+            &::after {
+                visibility: visible;
+                @include animation(widthIn 0.5s linear);
+            }
+
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            @include transform(translateX(-50%));
+            top: 0;
+            width: 100%;
+            height: 100%;
+            @include linearGradient(0deg, rgba(#091b33, .85)0%, rgba(#091b33, .85)50%, rgba(#082a5a, .85)72%, rgba(#091b33, .85)100%);
+            visibility: hidden;
+        }
+
+        .si-scoreBox {
+            @extend %flexbox;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 86px;
+            margin-top: 10px;
+            position: relative;
+            z-index: 11;
+
+            &.animateIn {
+                .si-team {
+                    visibility: visible;
+                    @include animation(1s ease-in both fadeIn);
+
+                    @for $i from 1 through 2 {
+                        &:nth-child(#{$i}) {
+                            animation-delay: $i * (.5s);
+                        }
+                    }
+                }
+            }
+
+            .si-team {
+                @extend %flexbox;
+                align-items: center;
+                justify-content: center;
+                font-family: $DDINBold_font-family;
+                font-weight: $DDINBold_font-weight;
+                font-size: 23px;
+                visibility: hidden;
+
+                &.si-teamABox {
+                    color: #de9a34;
+                }
+
+                &.si-teamBBox {
+                    color: #a6aaac
+                }
+
+                &:not(:last-child) {
+                    margin-right: 57px;
+                }
+
+                .si-teamName,
+                .si-overs,
+                .si-runsBox {
+                    margin-right: 6px;
+                }
+
+                .si-runsBox {
+                    @extend %flexbox;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+
+    &__container {
+        position: relative;
+        width: calc(100% - 5.2vw);
+        height: calc(100% - 15.3vh);
+        margin-left: auto;
+        position: absolute;
+        right: 0;
+        bottom: 9%;
+        visibility: hidden;
+        z-index: 11;
+
+        &.animateIn {
+            visibility: visible;
+            @include animation(1s ease-in both fadeIn 1.5s);
+
+            .si-chart-wrap {
+                .si-over {
+                    visibility: visible;
+                    @include animation(1s ease-in both manhattenIn 2s);
+                }
+
+                .si-wicket {
+                    visibility: visible;
+                    @include animation(1s ease-in both fadeIn 3s);
+                }
+            }
+        }
+
+        .si-chart-wrap {
+            .si-over {
+                @include border-radius(0px);
+                width: 22px;
+                margin-right: 0px;
+                background-color: transparent;
+
+                &:last-child:after {
+                    left: 0;
+                    font-family: $medium_font-family;
+                    font-weight: $medium_font-weight;
+                    font-size: 24px;
+                    bottom: -39px;
+                }
+
+                &:last-child:before {
+                    display: none;
+                }
+            }
+
+
+
+
+            .si-over-wrap {
+                width: 5%;
+                flex: 0 0 5%;
+                justify-content: center;
+            }
+        }
+
+        .si-over-wrap {
+            padding: 0 0 0px;
+            height: 100%;
+            align-items: flex-end;
+            width: 10%;
+            justify-content: center;
+        }
+
+        .si-score-line {
+            .si-line-wrap {
+                height: calc(100% / 10);
+                bottom: 0px;
+
+
+            }
+        }
+
+        .si-score-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            bottom: 0px;
+            height: 100%;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: -66px;
+                @include linearGradient(0deg, rgba(#06182a, .8)0%, rgba($black, 0)50%, rgba(#06182a, .8)100%);
+                bottom: 0;
+                width: 66px;
+                height: calc(100% + 70px);
+            }
+
+
+            .si-line-wrap {
+                position: relative;
+                width: 100%;
+
+
+
+
+
+                .si-lable {
+                    display: block;
+                    font-family: $DDINBold_font-family;
+                    font-weight: $DDINBold_font-weight;
+                    font-size: 20px;
+                    color: $white;
+                    z-index: 2;
+                    position: absolute;
+                    left: -4%;
+                    top: -13%;
+                    width: 26px;
+                    text-align: right;
+                }
+            }
+        }
+
+        .si-chart-wrap {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+
+            .si-over-container {
+                height: 100%;
+                @extend %flexbox;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 12%;
+                    bottom: -12%;
+                    @include linearGradient(180deg, rgba($white, 1)0, rgba(#e6e6e6, 1)45%, rgba(#c8c8c8, 1)70%, rgba(#fefefe, 1)97%, rgba(#fefefe, 1)100%);
+                    z-index: -1;
+
+                }
+            }
+
+            .si-over-wrap {
+                padding: 0 0 0px;
+                height: 100%;
+                align-items: flex-end;
+                @extend %flexbox;
+                position: relative;
+
+                &:after {
+                    content: attr(title);
+                    font-family: $DDINBold_font-family;
+                    font-weight: $DDINBold_font-weight;
+                    font-size: 20px;
+                    color: $black;
+                    text-align: center;
+                    margin: 0 auto;
+                    position: absolute;
+                    bottom: -12%;
+                    left: 50%;
+                    height: calc(100% - 88%);
+                    width: 100%;
+                    @include transform(translateX(-50%));
+                    @extend %flexbox;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &:last-child {
+                    .si-over {
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+
+            .si-wicket {
+                font-family: $DDINBold_font-family;
+                font-weight: $DDINBold_font-weight;
+                font-size: 7px;
+                color: #fff;
+                text-transform: uppercase;
+                cursor: pointer;
+                margin: 0 auto;
+                z-index: 1;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: auto;
+                visibility: hidden;
+
+                @for $i from 1 to 7 {
+                    &.si-wicket#{$i} {
+                        top: $i * -23px;
+                    }
+                }
+
+
+                /* &.si-wicket1 {
+                    top: -30px;
+                }
+
+                &.si-wicket2 {
+                    top: -45px;
+                }
+
+                &.si-wicket3 {
+                    top: -60px;
+                }
+
+                &.si-wicket4 {
+                    top: -75px;
+                }
+
+                &.si-wicket5 {
+                    top: -90px;
+                } */
+
+                &.si-wicket3,
+                &.si-wicket4,
+                &.si-wicket5 {
+                    .si-tooltip-wrap {
+                        top: 0;
+                        bottom: auto;
+                    }
+                }
+
+                .si-w-txt {
+                    background-color: $red;
+                    width: 20px;
+                    height: 20px;
+                    margin: 0 auto;
+                    justify-content: center;
+                    align-items: center;
+                    @extend %flexbox;
+                    @include border-radius(50%);
+                    position: relative;
+
+                    &::after {
+                        content: '\e908';
+                        font-family: 'ecl';
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        @extend %flexbox;
+                        justify-content: center;
+                        align-items: center;
+                        color: $white;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        font-size: 15px;
+                    }
+                }
+            }
+
+            .si-over {
+                position: relative;
+                display: block;
+                width: 12px;
+                height: auto;
+                margin-right: 1px;
+                cursor: pointer;
+                @include border-radius(.5vw .5vw 0 0);
+                flex: 1;
+                visibility: hidden;
+
+                &.teamA {
+                    @include linearGradient(180deg, rgba(#e2be6a, 1)60%, rgba(#b5833a, 1)100%);
+                }
+
+                &.teamB {
+                    @include linearGradient(180deg, rgba($white, 1)0, rgba(#e6e6e6, 1)45%, rgba(#c8c8c8, 1)70%, rgba(#fefefe, 1)97%, rgba(#fefefe, 1)100%);
+                }
+
+                &:last-child {
+
+
+                    &:before {
+                        content: "";
+                        background: $white;
+                        width: 1px;
+                        height: 3px;
+                        position: absolute;
+                        right: 0;
+                        left: 0;
+                        bottom: -3px;
+                        margin: 0 auto;
+                    }
+                }
+
+
+            }
+
+            .si-score-label,
+            .si-over-label {
+                font-family: $medium_font-family;
+                font-weight: $medium_font-weight;
+                font-size: 20px;
+                color: #de9a34;
+                text-transform: capitalize;
+                position: absolute;
+            }
+
+            .si-powerPlay-label {
+                position: absolute;
+                left: 0;
+                bottom: -12%;
+                height: 12%;
+                @extend %flexbox;
+                align-items: center;
+                justify-content: center;
+                width: 30%;
+                text-transform: uppercase;
+                @include linearGradient(180deg, rgba($black, 0)0%, rgba(#e21d28, 1)50%, rgba(#e21d28, 1)100%);
+                z-index: -1;
+                font-family: $DDINBold_font-family;
+                font-weight: $DDINBold_font-weight;
+                color: $white;
+                font-size: 17px;
+            }
+
+            .si-score-label {
+                left: -110px;
+                top: 50%;
+                @include transform(translateY(-50%) rotate(-90deg))
+            }
+
+            .si-over-label {
+                left: -60px;
+                bottom: -30px;
+            }
+        }
+    }
+
+
+}

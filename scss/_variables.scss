@@ -1,0 +1,73 @@
+//Colors
+$transparent: transparent;
+$default: #404040;
+$gray: #848484;
+$white: #fff;
+$black: #000;
+$green: #008948;
+$red:#ff0000;
+$yellow : #fde940;
+$background-color : #e7e7e7;
+$header-bg: #34395d;
+
+//client colors
+$client-primary-color:#091b33 ;
+$client-secondary-color:#a67322 ;
+$client-complementary-color:#838787;
+$client-deactive-color:#b5b9bb;
+
+$blue-1 : $client-primary-color;
+$blue-2 : $client-primary-color;
+$blue-3 : #083474;
+$blue-4 : $client-primary-color;
+$blue5:#081524;
+$blue6:#082a5a;
+$blue7:#3469b4;
+$blue8:#093471;
+$blue9:#071322;
+$blue10:#082753;
+
+
+$yellow-1 : #b67d27;
+$yellow-2 : $client-secondary-color;
+$yellow-3:#a25d00;
+$yellow4:#df8900;
+$yellow5:#cc8f33;
+$yellow6:#94651a;
+$heading-color:#113b72;
+$gray-1 : #dadee7;
+$gray2:#838383;
+$gray3:#f3f3f3;
+$gray4:#fefefe;
+$gray-5:#e6e6e6;
+$gray-6:#a7a7a7;
+$gray-7:#818181;
+//icons color
+$substitute-up:#66cc33;
+$substitute-down:#b4181e;
+
+// social icons
+$googlePlus:#dd4b39;
+$facebook:#3b5998;
+$twitter:#1da1f2;
+$whatsApp:#7ad06d;
+$instagram:#125688;
+
+//Media Breakpoints
+$media-mobile-ex-small-320: 320px;
+$media-mobile-small: 360px;
+$media-mobile-med: 375px;
+$media-mobile-small-max: 480px;
+$media-mobile-max: 767px; //Mobiles (Landscape)
+$media-tablet-min: 768px;
+$media-tablet-small-max : 812px; //for iphone10, vivov11 pro and one plus 6/6T @media screen and (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)
+$media-tablet-max: 992px; //Tablets, Ipads
+$media-desktop-min: 1024px;
+$media-desktop-max: 1200px; 
+$media-laptop-min: 1280px; //Laptops, Desktops
+$media-laptop-max: 1366px;
+$media-ex-large-min: 1367px;
+$media-ex-large-max: 1441px;
+$media-ex-large-hd-max: 1601px;
+$media-xxlarge: 1900px;
+$media-xxlarge-min: 2000px;
