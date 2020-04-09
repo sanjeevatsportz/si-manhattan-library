@@ -5,6 +5,7 @@ A library to create manhattan dynamically based on parameters passed.
 	git clone https://github.com/sanjeevatsportz/si-manhattan-library.git
 
 2. Pass div with appropriate parameters to load manhattan
+
 	var manhattanObj = {overs : oversToPlot, totalOvers: 20, 'innings': 1, 'powerPlay': 6, 'xAxisLabel': 'Overs', 'yAxisLabel': 'Runs Scored'}
 	new ManhattanJs.Manhattan("id_of_container", manhattanObj);
 
